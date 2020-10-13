@@ -1,0 +1,244 @@
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+body{
+  margin: 0;
+  background: url("/ProyectoPW1/Pantallas/assets/121135624_1309794602715419_5894552710021219028_n.jpg")
+}
+
+div.carro {
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  font-family: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carrusel {
+  position: relative;
+  top: 40px;
+  padding-top: 75%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+}
+
+.carruselview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: rgb(112, 156, 206);
+  counter-increment: item;
+}
+
+.slide:nth-child(even) {
+  background-color: rgb(216, 135, 189);
+}
+
+.slide:before {
+  content: counter(item);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-40%,70px);
+  color: #fff;
+  font-size: 2em;
+}
+
+.carrsnap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+  .carrsnap {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  .slide:last-child .carrsnap {
+    animation-name: tostart, snap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrsnap {
+    animation-name: none;
+  }
+}
+
+.carrusel:hover .carrsnap,
+.carrusel:focus-within .carrsnap {
+  animation-name: none;
+}
+
+.carruselnav {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carruselnav-list,
+.carruselnav-item {
+  display: inline-block;
+}
+
+.carruselnav-button {
+  display: inline-block;
+  width: 2rem;
+  height: 1.5rem;
+  background-color: rgba(51, 51, 51, 0.548);
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 40%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carrusel::before,
+.carrusel::after,
+.carruselprev,
+.carruselnext {
+  position: absolute;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.carrusel::before,
+.carruselprev {
+  left: -1rem;
+}
+
+.carrusel::after,
+.carruselnext {
+  right: -1rem;
+}
+
+.carrusel::before,
+.carrusel::after {
+  content: '';
+  z-index: 1;
+  background-color: rgba(51, 51, 51, 0.39);
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: rgba(255, 255, 255, 0.151);
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.carrusel::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.carrusel::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+header{
+  background-color: rgba(51, 49, 49, 0.493);
+  min-width: 100%;
+  top: 0;
+  position: sticky;
+  font-size: xx-large;
+  padding: 20px;
+  text-align: center;
+}

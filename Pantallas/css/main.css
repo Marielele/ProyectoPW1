@@ -63,3 +63,16 @@ div.singup{
     top: 220px;
     left: 110px;
 }
+
+div.leyenda{
+    font-size: 21px;
+    position: relative;
+    bottom: 240px;
+}
+
+.check-user{
+    font-size: medium;
+    position: relative;
+    bottom: 100px;
+    right: 5px;
+}
