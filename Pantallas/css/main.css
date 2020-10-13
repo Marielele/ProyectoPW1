@@ -1,6 +1,6 @@
 div.login{
     width: 400px;
-    height: 500px;
+    height: 450px;
     position: absolute;
     top: auto;
     left: 37%;
@@ -10,7 +10,7 @@ div.login{
     background-color: #f0e9f0;
     border: 5px  rgb(36, 179, 167);
     border-style: dashed double none;
-    border-radius: 35px;
+    border-radius: 120px;
     font-family: 'Neucha', cursive;
     text-align: center;
     -webkit-box-shadow: 0px 6px 24px -1px rgba(47,144,168,1);
@@ -20,19 +20,46 @@ div.login{
 
 div.singup{
     width: 400px;
-    height: 500px;
+    height: 450px;
     position: absolute;
     top: auto;
+    left: 37%;
     color: rgb(0, 0, 0);
     padding: 50px;
     font-size: 70px;
     background-color: #f0e9f0;
     border: 5px  rgb(192, 141, 161);
     border-style: dashed double none;
-    border-radius: 35px;
+    border-radius: 120px;
     font-family: 'Neucha', cursive;
     text-align: center;
     -webkit-box-shadow: 0px 6px 24px -1px rgb(207, 163, 187);
     -moz-box-shadow: 0px 6px 24px -1pxrgb(207, 163, 187);
     box-shadow: 0px 6px 24px -1px rgb(207, 163, 187);
+}
+
+.form-group input {
+    position: relative;
+    left: 90px;
+    top: 160px;
+    margin: 20px;
+    display: block;
+}
+
+.botonace {
+    position: relative;
+    top: 120px;
+    left: 60px;
+}
+
+.iconopret {
+    position: absolute;
+    top: 160px;
+    left: 200px;
+}
+
+.addimg {
+    position: absolute;
+    top: 220px;
+    left: 110px;
 }
