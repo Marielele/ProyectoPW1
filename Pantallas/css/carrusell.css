@@ -45,7 +45,7 @@
 
 body{
   margin: 0;
-  background: url("/ProyectoPW1/Pantallas/assets/121135624_1309794602715419_5894552710021219028_n.jpg")
+  background: url("/ProyectoPW1/Pantallas/assets/fondoexp.png")
 }
 
 div.carro {
@@ -238,6 +238,64 @@ header{
   min-width: 100%;
   top: 0;
   position: sticky;
+  z-index: 1;
+  font-size: xx-large;
+  padding: 20px;
+  text-align: center;
+}
+
+.noticuadro {
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  left:40px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.171);
+  width: 20%;
+  height: 195px;
+  padding: 15px;
+  border-radius: 45px;
+}
+
+.seccion{
+  position: relative;
+  top: 70px;
+  width: 90%;
+  height: 260px;
+  background-color: rgba(44, 37, 37, 0.377);
+  border-radius: 45px;
+  margin: auto;
+}
+
+.seccion2 {
+  background-color: rgba(43, 38, 38, 0.425);
+  position: relative;
+  top: 95px;
+  width: 90%;
+  height: 700px;
+  margin: auto;
+  border-radius: 45px;
+}
+
+.mininoti {
+  display: inline-block;
+  width: 45%;
+  height: 280px;
+  background-color: rgba(0, 0, 0, 0.192);
+  margin-top: 50px;
+  margin-left: 50px;
+  border-radius: 40px;
+}
+
+.infofin {
+  background-color: rgba(51, 49, 49, 0.493);
+  min-width: 100%;
+  position: relative;
+  top: 120px;
   font-size: xx-large;
   padding: 20px;
   text-align: center;
