@@ -3,14 +3,25 @@ body{
     background: url("/ProyectoPW1/Pantallas/assets/fondoexp.png")
   }
 
+  ::-webkit-scrollbar {
+    display: none;
+}
+
 header{
-    background-color: rgba(51, 49, 49, 0.493);
+    background-color:#f0e9f046;
     top: 0;
     position: sticky;
     z-index: 1;
     font-size: xx-large;
-    padding: 20px;
+    padding: 1px;
     text-align: center;
+    -webkit-box-shadow: -2px 1px 18px 1px rgba(48,48,48,1);
+    -moz-box-shadow: -2px 1px 18px 1px rgba(48,48,48,1);
+    box-shadow: -2px 1px 18px 1px rgba(0, 0, 0, 0.171);
+    border-left: double;
+    border-right: double;
+    border-width: 20px;
+    border-color: #fcd3ea;
   }
 
   .noticion {
@@ -100,3 +111,84 @@ header{
     border-radius: 45px;
     margin: auto;
   }
+
+  p.barrita {
+    font-size: 33px;
+    font-family: 'Neucha', cursive;
+    display: -webkit-inline-box;
+    margin: 30px;
+  }
+
+  .logo {
+    height: 60px;
+    position: relative;
+    right: 90px;
+    top: 20px;
+  }
+
+  .otro {
+    height: 35px;
+    position: relative;
+    top: 5px;
+    left: 80px;
+    margin-left: 30px;
+  }
+
+  .imgusuario {
+    height: 130px;
+    position: relative;
+    top: 80px;
+    left: 100px;
+  }
+
+  .addimg {
+    position: absolute;
+    top: 250px;
+    left: 190px;
+}
+
+.datos {
+  font-family: 'Neucha', cursive;
+  font-size: 25px;
+  position: relative;
+  top: 80px;
+  left: 42px;
+  background-color: rgba(20, 20, 20, 0.288);
+  width: 260px;
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 45px;
+}
+
+.ensection {
+  font-family: 'Neucha', cursive;
+  font-size: x-large;
+  position: relative;
+  top: 86.5px;
+  left: 40px;
+}
+
+.nombreusuario {
+  position: absolute;
+  top: 50px;
+  left: 500px;
+  background-color: rgba(20, 20, 20, 0.288);
+  width: 260px;
+  height: 75px;
+  padding-left: 10px;
+  border-radius: 45px;
+  font-family: 'Neucha', cursive;
+  padding-left: 50px;
+}
+
+.descripcion {  
+  position: absolute;
+  top: 160px;
+  left: 500px;
+  padding-left: 50px;
+  padding-top: 30px;
+  background-color: rgba(20, 20, 20, 0.288);
+  width: 700px;
+  height: 220px;
+  border-radius: 45px;
+}
