@@ -65,8 +65,38 @@ header{
   .infofin {
     background-color: rgba(51, 49, 49, 0.493);
     position: relative;
-    top: 120px;
+    top: 150px;
     font-size: xx-large;
     padding: 20px;
     text-align: center;
+  }
+
+  .section{
+    position: relative;
+    top: 50px;
+    width: 70%;
+    height: 450px;
+    background-color: rgba(44, 37, 37, 0.377);
+    border-radius: 45px;
+    margin: auto;
+  }
+
+  .barraact {
+    position: relative;
+    top: 70px;
+    width: 35%;
+    height: 95px;
+    background-color: rgba(44, 37, 37, 0.377);
+    border-radius: 45px;
+    margin: auto;
+  }
+
+  .notifavs {
+    position: relative;
+    top: 120px;
+    width: 70%;
+    height: 500px;
+    background-color: rgba(44, 37, 37, 0.377);
+    border-radius: 45px;
+    margin: auto;
   }
