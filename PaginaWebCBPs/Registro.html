@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+        <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+        <!-- Nuestro css-->
+        <link rel="stylesheet" type="text/css" href="Registro.css" th:href="@{Registro.css}"> 
+        
+  
+</head>
+<body>
+  <div class="modal-dialog text-center">
+    <div class="modal-content col-8" style="background-color:linen" style="vertical-align: 110px;">
+            <form>
+
+                <img src="/assets/musiteca.png" width="70px" height="70px"/>
+                <h1 class="h3 mb-4 font-weight-bold" style="font-family: 'Pontano Sans', sans-serif"> MUSITECA</h1>
+                <h2 class="h6 mb-4" style="font-family: 'Pontano Sans', sans-serif"> Registrate para comentar en tus noticias favoritas</h2>
+              
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="nombre" class="form-control" placeholder="Nombre" id="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="Nickname" class="form-control"placeholder="Apodo" id="Nickname">
+                    </div>
+                  </div>
+                  <div class="form-group email-group" >
+                    <input type="email" class="form-control" placeholder="Email" id="Email" aria-describedby="emailHelp"/>
+                  </div>
+
+                <div class="form-group password-group">
+                  <input type="password" class="form-control" placeholder="Contrasena" id="password"/>
+                </div>
+                <div class="form-group password-group">
+                  <input type="password" class="form-control" placeholder="Confirmacion" id="password"/>
+                </div>
+                <button type="button" class="btn btn-danger">Crear cuenta</button>
+              </form>
+            </div>
+    </div>
+
+
+</div>
+</body>
+</html>
