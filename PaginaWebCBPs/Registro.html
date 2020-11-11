@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
   <!--JQUERY-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -27,41 +30,53 @@
 </head>
 
 <body style="font-family: 'Pontano Sans', sans-serif">
-  <div class="modal-dialog text-center">
-    <div class="modal-content col-8" style="background-color:linen">
-      <div>
-        <img src="/assets/musiteca.png" width="70px" height="70px" style="text-align: center;" />
-        <h1 class="h3 mb-4 font-weight-bold"> MUSITECA</h1>
-        <h2 class="h6 mb-4"> Registrate para comentar en tus noticias
-          favoritas</h2>
+  <div class="container" style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+    <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-red w3-margin">
+      <div class="w3-center" style="padding-top: 5%;">
+        <img src="/assets/musiteca.png" width="70px" height="70px" />
       </div>
-      <form>
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <input type="text" class="form-control" id="validationDefault01" placeholder="Nombre" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <input type="text" class="form-control" id="validationDefault02" placeholder="Apodo" required>
-          </div>
+      <h2 class="w3-center">Musiteca</h2>
+      <h5 class="w3-center"> Registrate para comentar en tus noticias
+        favoritas</h5>
+
+      <div class="w3-row w3-section" style="padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="name" type="text" placeholder="Nombre" required>
         </div>
-        <div class="form-row">
-          <div class="col-md-10 mb-3">
+      </div>
 
-            <input type="email" class="form-control" placeholder="Email" id="validationDefault03" required>
-          </div>
-          <div class="col-md-10 mb-3">
+      <div class="w3-row w3-section" style="padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="nick" type="text" placeholder=" Apodo" required>
+        </div>
+      </div>
 
-            <input type="password" class="form-control" placeholder="Contraseña" id="validationDefault04" required>
-          </div>
-          <div class="col-md-10 mb-3">
+      <div class="w3-row w3-section" style="padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="email" type="text" placeholder="Email" required>
+        </div>
+      </div>
 
-            <input type="password" class="form-control  mb-4" placeholder="Confirmacion" id="validationDefault05"
-              required>
-            <button class="btn btn-danger" type="submit">Crear cuenta</button>
-          </div>
+      <div class="w3-row w3-section" style="padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="password" type="password" placeholder="Contraseña" required>
+        </div>
+      </div>
 
-      </form>
-    </div>
+      <div class="w3-row w3-section" style="padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="confirmation" type="password" placeholder="Confirmacion" required>
+        </div>
+      </div>
+      <div class="w3-center" style="padding-top: 2%; padding-bottom: 5%;">
+        <button class="btn btn-danger" type="submit">Crear cuenta</button>
+      </div>
+    </form>
   </div>
 </body>
 

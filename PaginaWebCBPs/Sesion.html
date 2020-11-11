@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
   <!--JQUERY-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -21,33 +24,44 @@
     crossorigin="anonymous"></script>
 
   <!-- Nuestro css-->
-  <link rel="stylesheet" type="text/css" href="Sesion.css" th:href="@{Sesion.css}">
+  <link rel="stylesheet" type="text/css" href="Registro.css" th:href="@{Registro.css}">
+
 
 </head>
 
 <body style="font-family: 'Pontano Sans', sans-serif">
-  <div class="modal-dialog text-center">
-    <div class="modal-content col-8" style="background-color:linen">
-      <form>
+  <div class="container" style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+    <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-red w3-margin">
+      <div class="w3-center" style="padding-top: 5%;">
         <img src="/assets/musiteca.png" width="70px" height="70px" />
-        <div class="form-group email-group">
-          <h1 class="h3 mb-4 font-weight-bold"> MUSITECA</h1>
-          <input type="email" class="form-control" placeholder="Email" id="Email" aria-describedby="emailHelp" />
-        </div>
+      </div>
+      <h2 class="w3-center">Musiteca</h2>
+      <h5 class="w3-center"> Inicia sesion para comentar en tus noticias
+        favoritas</h5>
 
-        <div class="form-group password-group">
-          <input type="password" class="form-control" placeholder="Contrasena" id="password" />
+      <div class="w3-row w3-section" style=" padding-top: 5%; padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="email" type="text" placeholder="Email" required>
         </div>
+      </div>
 
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+      <div class="w3-row w3-section" style="padding-top: 5%; padding-left: 20%; padding-right: 20%;">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+        <div class="w3-rest">
+          <input class="w3-input w3-border" name="password" type="password" placeholder="Contraseña" required>
         </div>
-        <button type="button" class="btn btn-danger">Iniciar sesion</button>
-        <label for="exampleInputPassword1" style="font-family: 'Pontano Sans', sans-serif">¿No tienes una cuenta?</label>
-        <button type="button" class="btn btn-link">Registrase</button>
-      </form>
+      </div>
+      <div class="w3-row w3-section w3-center">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+      </div>
     </div>
+      <div class="w3-center" style="padding-top: 2%; padding-bottom: 5%;">
+        <button class="btn btn-danger" type="submit">Iniciar sesion</button>
+      </div>
+    </form>
   </div>
 </body>
 
