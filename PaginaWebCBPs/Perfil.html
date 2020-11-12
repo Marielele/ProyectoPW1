@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
+    
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="Perfil.css" th:href="@{Perfil.css}">
+</head>
+
+<body style="font-family: 'Pontano Sans', sans-serif">
+    <!--Navbar -->
+    <nav class="shadow navbar navbar-expand-lg sticky-top navbar-dark" style="background-color:#e71f41">
+        <a class="navbar-brand" href="#" style="font-size: 25px;">
+            <img src="/assets/musiteca.png" width="35" height="35" class="d-inline-block align-top" alt="Logo"
+                loading="lazy">
+            Musiteca
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+            aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-555" style="font: size 20px;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Destacados
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Explorar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Videos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Música
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TV/Cine</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                    </div>
+                </form>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="/assets/user.png" width="20" height="20" alt="avatar image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                        aria-labelledby="navbarDropdownMenuLink-55">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="w3-row w3-border w3-bottombar w3-border-color-blue" style="padding-top: 4%;">
+        <div class="w3-third w3-container">
+            <img src="/assets/musiteca.png" width="100px" height="100px" class="mx-auto d-block" />
+        </div>
+        <div class="w3-third w3-container" >
+            <h1>USUARIO</h1>
+        </div>
+        <div class="w3-third w3-container" style="padding-top: 5%; padding-bottom: 2%;">
+
+        </div>
+        <div class="w3-third w3-container w3-right-align" style="padding-bottom: 3%;">
+
+        </div>
+        <div class="w3-third w3-container" style="padding-bottom: 3%;">
+            <h4>DESCRIPCION</h4>
+            <p>Aqui va la descripcion del usuario </p>
+        </div>
+        <div class="w3-third w3-container">
+            <button class="btn btn-outline-danger" type="submit">Editar Perfil</button>
+        </div>
+    </div>
+
+
+    <div class="container  w3-bottombar w3-topbar w3-leftbar w3-rightbar  w3-round-xxlarge" style="margin-top: 2%;">
+        <div class="w3-row">
+            <div class="w3-third w3-container" style="padding-top: 1%; padding-bottom: 1%;">
+                <img src="/assets/coment.png" width="50px" height="50px" class="mx-auto d-block" />
+            </div>
+            <div class="w3-third w3-container" style="padding-top: 1%; padding-bottom: 1%;">
+                <img src="/assets/bookmark.png" width="50px" height="50px" class="mx-auto d-block" />
+            </div>
+            <div class="w3-third w3-container" style="padding-top: 1%; padding-bottom: 1%;">
+                <img src="/assets/bell.png" width="50px" height="50px" class="mx-auto d-block" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container border w3-round-xlarge" style="margin-top: 2%;">
+        <div class="w3-row">
+            <div class="w3-container w3-half w3-red text-center">
+                <img src="/assets/musiteca.png" width="100px" height="100px" class="mx-auto d-block" />
+                <h2>Noticia o comentario</h2>
+                <p>Aqui va una pequeña </p>
+                <p>Descripcion de la noticia</p>
+            </div>
+            <div class="w3-container w3-half">
+                <h3>Comentario o respuesta</h3>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-container w3-half w3-red text-center">
+                <img src="/assets/musiteca.png" width="100px" height="100px" class="mx-auto d-block" />
+                <h2>Noticia o comentario</h2>
+                <p>Aqui va una pequeña </p>
+                <p>Descripcion de la noticia</p>
+            </div>
+            <div class="w3-container w3-half">
+                <h3>Comentario o respuesta</h3>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-container w3-half w3-red text-center">
+                <img src="/assets/musiteca.png" width="100px" height="100px" class="mx-auto d-block" />
+                <h2>Noticia o comentario</h2>
+                <p>Aqui va una pequeña </p>
+                <p>Descripcion de la noticia</p>
+            </div>
+            <div class="w3-container w3-half">
+                <h3>Comentario o respuesta</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row w3-border" style="margin-top: 10%;">
+        <div class="w3-container w3-half w3-red">
+          <h2>PARTE INFERIOR</h2>  
+          <p>Aqui van </p>
+          <p>los creditos o algo asi</p>
+
+        </div>
+        <div class="w3-container w3-half">
+          <h2>PARTE INFERIOR</h2>  
+          <p>Aqui van </p>
+          <p>los creditos o algo asi</p>
+        </div>
+      </div>
+</body>
+
+</html>
