@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de noticias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body class="text-center" style="font-family: 'Pontano Sans', sans-serif">
+    <!--Navbar -->
+    <nav class="shadow navbar navbar-expand-lg sticky-top navbar-dark" style="background-color:#e71f41">
+        <a class="navbar-brand" href="#" style="font-size: 25px;">
+            <img src="/assets/musiteca.png" width="35" height="35" class="d-inline-block align-top" alt="Logo"
+                loading="lazy">
+            Musiteca
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+            aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-555" style="font: size 20px;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Destacados
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Explorar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Videos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Música
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TV/Cine</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                    </div>
+                </form>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="/assets/user.png" width="20" height="20" alt="avatar image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                        aria-labelledby="navbarDropdownMenuLink-55">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--TERMINA Navbar -->
+
+
+    <div class="container  w3-bottombar w3-topbar w3-leftbar w3-rightbar  w3-round-xxlarge" style="margin-top: 2%;">
+        <div class="w3-row">
+            <div class="w3-third w3-container" style="padding-left: 3%;">
+                <button>
+                    <img src="/assets/musiteca.png" width="1000px" height="400px" class="w3-border w3-padding"
+                        alt="Portada">
+                </button>
+            </div>
+            <div class="w3-container w3-center">
+                <h1>TITULO</h1>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-4">
+            <h3>Noticias Relacionadas</h3>
+            <div class="view overlay">
+                <a href="#!">
+                    <img class="card-img-top"
+                        src="https://cdnb.artstation.com/p/assets/images/images/031/890/407/large/ya-lun-sdsd2.jpg?1604905613"
+                        alt="Card image cap"></a>
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
+                <h4 class="card-title">Titulo</h4>
+                <hr>
+                <p class="card-text">testo texto texto</p>
+                <a href="#!" class="black-text d-flex justify-content-end">
+                    <h5>Leer más </h5>
+                </a>
+            </div>
+            <div class="view overlay">
+                <a href="#!">
+                    <img class="card-img-top"
+                        src="https://cdnb.artstation.com/p/assets/images/images/031/890/407/large/ya-lun-sdsd2.jpg?1604905613"
+                        alt="Card image cap"></a>
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
+                <h4 class="card-title">Titulo</h4>
+                <hr>
+                <p class="card-text">testo texto texto</p>
+                <a href="#!" class="black-text d-flex justify-content-end">
+                    <h5>Leer más </h5>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="w3-row" style="margin-top: 2%;">
+        <div class="w3-quarter w3-container">
+            <button class="btn btn-danger" style="margin-left: 60%;" type="submit">Categoria</button>
+        </div>
+        <div class="w3-quarter w3-container">
+            <h4>FECHA</h4>
+        </div>
+        <div class="w3-half w3-container">
+            <h4>AUTOR</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
