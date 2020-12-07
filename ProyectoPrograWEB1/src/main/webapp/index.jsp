@@ -1,0 +1,145 @@
+<%-- 
+    Document   : index
+    Created on : 6 dic 2020, 22:45:56
+    Author     : marie
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Musiteca</title>
+        <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </head>
+<body style="font-family: 'Pontano Sans', sans-serif;">
+    <!--Navbar -->
+    <nav class="shadow navbar navbar-expand-lg sticky-top navbar-dark" style="background-color:#e71f41">
+        <a class="navbar-brand" href="#" style="font-size: 25px;">
+            <img src="/ProyectoPW1/assets/sound-waves.png" width="35" height="35" class="d-inline-block align-top"
+                alt="Logo" loading="lazy">
+            Musiteca
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+            aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-555" style="font: size 20px;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Destacados
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Explorar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Videos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Música
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TV/Cine</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                    </div>
+                </form>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="/ProyectoPW1/assets/user.png" width="20" height="20" alt="avatar image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                        aria-labelledby="navbarDropdownMenuLink-55">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-xl" style="padding: 0%;">
+        <!--Carrusel -->
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/ProyectoPW1/assets/p1.jpg" class="d-block w-100" alt="Noticia1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/ProyectoPW1/assets/p2.png" class="d-block w-100" alt="Noticia2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/ProyectoPW1/assets/p3.jpg" class="d-block w-100" alt="Noticia3">
+                </div>
+                <div class="carousel-item">
+                    <img src="/ProyectoPW1/assets/p4.jpg" class="d-block w-100" alt="Noticia4">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <hr  width="75%">
+        <h1 style="margin-top: 2%">Noticias Destacadas</h1>
+        <div class="row">
+            <%
+                for (int i = 0; i < 6; i++) {
+            %>
+            <div class="card col-12 col-md-4">
+                <div class="view overlay">
+                    <a href="#!">
+                    <img class="card-img-top"
+                        src="https://cdna.artstation.com/p/assets/images/images/031/822/414/large/stephen-zavala-imperial-crawler-1-sz.jpg?1604681421"
+                        alt="Card image cap"></a>
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
+                    <h4 class="card-title">Noticia destacada</h4>
+                    <hr>
+                    <p class="card-text">testo texto texto</p>
+                    <a href="#!" class="black-text d-flex justify-content-end">
+                        <h5>Leer más </h5>
+                    </a>
+                </div>
+            </div>
+            <%
+                }
+            %>
+        <div class="info">
+            <img src="/ProyectoPW1/assets/sound-waves.png" width="80px" alt="Logo">
+            <hr style="width: 90%;">
+            <p>Siguenos en nuestras redes sociales</p>
+                <a href="#!"> <img src="/ProyectoPW1/assets/facebook-circular-logo (1).png" width="45px" style="margin: 1%;" alt="Facebook"> </a>
+                <a href="#!"> <img src="/ProyectoPW1/assets/twitter.png" width="45px" style="margin: 1%;" alt="twitter"></a>
+                <a href="#!"> <img src="/ProyectoPW1/assets/youtube.png" width="45px" style="margin: 1%;" alt="youtube"> </a>
+            <p style="margin-top: 5%;">© 2020 Musiteca. A Carlele Media Company. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
