@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: localhost    Database: dbmusitecapw
+-- Host: localhost    Database: bdmusiteca
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -16,135 +16,58 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `administrador`
+-- Table structure for table `categoria`
 --
 
-DROP TABLE IF EXISTS `administrador`;
+DROP TABLE IF EXISTS `categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `administrador` (
-  `idAdministrador` int NOT NULL AUTO_INCREMENT,
-  `Noticia_Aprobada` varchar(45) DEFAULT NULL,
-  `Noticia_Rechazada` varchar(45) DEFAULT NULL,
-  `Suspender_temporalmente` varchar(45) DEFAULT NULL,
-  `Suspender_permanentemente` varchar(45) DEFAULT NULL,
-  `Rechazar_Noticia` varchar(45) DEFAULT NULL,
-  `Aprobar_Noticia` varchar(45) DEFAULT NULL,
-  `Borrar_comentario` varchar(45) DEFAULT NULL,
-  `ID_ Noticia` int NOT NULL,
-  `ID_User` int NOT NULL,
-  PRIMARY KEY (`idAdministrador`),
-  KEY `fkeyid_Noticia_idx` (`ID_ Noticia`),
-  KEY `fk_iduser_idx` (`ID_User`),
-  CONSTRAINT `fk_iduser` FOREIGN KEY (`ID_User`) REFERENCES `usuario` (`idUsuario`),
-  CONSTRAINT `foreingkey_idnoticia` FOREIGN KEY (`ID_ Noticia`) REFERENCES `noticia` (`idNoticia`)
+CREATE TABLE `categoria` (
+  `idcategoria` int NOT NULL AUTO_INCREMENT,
+  `NombreCategoria` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idcategoria`),
+  UNIQUE KEY `idcategoria_UNIQUE` (`idcategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `administrador`
+-- Dumping data for table `categoria`
 --
 
-LOCK TABLES `administrador` WRITE;
-/*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
+LOCK TABLES `categoria` WRITE;
+/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `creador`
+-- Table structure for table `comentario`
 --
 
-DROP TABLE IF EXISTS `creador`;
+DROP TABLE IF EXISTS `comentario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `creador` (
-  `idCreador` int NOT NULL AUTO_INCREMENT,
-  `Noticia_aprobada` varchar(45) NOT NULL,
-  `Noticia_rechazada` varchar(45) NOT NULL,
-  `id_Noticia` int NOT NULL,
-  `ID_User` int NOT NULL,
-  PRIMARY KEY (`idCreador`),
-  KEY `fkey_idNoticia_idx` (`id_Noticia`),
-  KEY `fk_id_user_idx` (`ID_User`),
-  CONSTRAINT `fk_id_user` FOREIGN KEY (`ID_User`) REFERENCES `usuario` (`idUsuario`),
-  CONSTRAINT `fkey_idNoticia` FOREIGN KEY (`id_Noticia`) REFERENCES `noticia` (`idNoticia`)
+CREATE TABLE `comentario` (
+  `idcomentario` int NOT NULL AUTO_INCREMENT,
+  `contenido` text,
+  `iduser` int DEFAULT NULL,
+  `idnoticia` int DEFAULT NULL,
+  `parent` int DEFAULT NULL,
+  PRIMARY KEY (`idcomentario`),
+  UNIQUE KEY `idcomentario_UNIQUE` (`idcomentario`),
+  KEY `fk_noticia_idx` (`idnoticia`),
+  KEY `fk_user_idx` (`iduser`),
+  CONSTRAINT `fk_noticia` FOREIGN KEY (`idnoticia`) REFERENCES `noticia` (`idnoticia`),
+  CONSTRAINT `fk_user` FOREIGN KEY (`iduser`) REFERENCES `user` (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `creador`
+-- Dumping data for table `comentario`
 --
 
-LOCK TABLES `creador` WRITE;
-/*!40000 ALTER TABLE `creador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `creador` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `editor`
---
-
-DROP TABLE IF EXISTS `editor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `editor` (
-  `idEditor` int NOT NULL AUTO_INCREMENT,
-  `Aprobar_noticia` varchar(45) NOT NULL,
-  `Rechazar_noticia` varchar(45) NOT NULL,
-  `id_Noticia` int NOT NULL,
-  `ID_User` int NOT NULL,
-  PRIMARY KEY (`idEditor`),
-  KEY `fkid_noticia_idx` (`id_Noticia`),
-  KEY `fkid_user_idx` (`ID_User`),
-  CONSTRAINT `fkid_noticia` FOREIGN KEY (`id_Noticia`) REFERENCES `noticia` (`idNoticia`),
-  CONSTRAINT `fkid_user` FOREIGN KEY (`ID_User`) REFERENCES `usuario` (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `editor`
---
-
-LOCK TABLES `editor` WRITE;
-/*!40000 ALTER TABLE `editor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `editor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `moderador`
---
-
-DROP TABLE IF EXISTS `moderador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `moderador` (
-  `idModerador` int NOT NULL AUTO_INCREMENT,
-  `Suspender_permanentemente` varchar(45) DEFAULT NULL,
-  `Suspender_temporalmente` varchar(45) DEFAULT NULL,
-  `Borrar_comentario` varchar(45) DEFAULT NULL,
-  `ID_Usuario_registrado` int NOT NULL,
-  `ID_ Usuario_anónimo` int NOT NULL,
-  `ID_ Noticia` int NOT NULL,
-  `ID_User` int NOT NULL,
-  PRIMARY KEY (`idModerador`),
-  KEY `fkey_id_Noticia_idx` (`ID_ Noticia`),
-  KEY `fk_id_Usuario_registrado_idx` (`ID_Usuario_registrado`),
-  KEY `fk_id_Usuario_anonimo_idx` (`ID_ Usuario_anónimo`),
-  KEY `fkey_iduser_idx` (`ID_User`),
-  CONSTRAINT `fk_id_Usuario_anonimo` FOREIGN KEY (`ID_ Usuario_anónimo`) REFERENCES `usuario_anonimo` (`id_usuario_Anonimo`),
-  CONSTRAINT `fk_id_Usuario_registrado` FOREIGN KEY (`ID_Usuario_registrado`) REFERENCES `usuario_registrado` (`id_Usuario_Registrado`),
-  CONSTRAINT `fkey_id_Noticia` FOREIGN KEY (`ID_ Noticia`) REFERENCES `noticia` (`idNoticia`),
-  CONSTRAINT `fkey_iduser` FOREIGN KEY (`ID_User`) REFERENCES `usuario` (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `moderador`
---
-
-LOCK TABLES `moderador` WRITE;
-/*!40000 ALTER TABLE `moderador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `moderador` ENABLE KEYS */;
+LOCK TABLES `comentario` WRITE;
+/*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -155,10 +78,15 @@ DROP TABLE IF EXISTS `noticia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `noticia` (
-  `idNoticia` int NOT NULL AUTO_INCREMENT,
-  `Comentario` varchar(45) DEFAULT NULL,
-  `Titulo` varchar(45) NOT NULL,
-  PRIMARY KEY (`idNoticia`)
+  `idnoticia` int NOT NULL AUTO_INCREMENT,
+  `Titulo` varchar(45) DEFAULT NULL,
+  `Descripcion` text,
+  `Imagen` varchar(100) DEFAULT NULL,
+  `idCategoria` int DEFAULT NULL,
+  PRIMARY KEY (`idnoticia`),
+  UNIQUE KEY `idnoticia_UNIQUE` (`idnoticia`),
+  KEY `fk_categoria_idx` (`idCategoria`),
+  CONSTRAINT `fk_categoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idcategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -172,112 +100,412 @@ LOCK TABLES `noticia` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pagina_web`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `pagina_web`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pagina_web` (
-  `idPagina_web` int NOT NULL AUTO_INCREMENT,
-  `Direccion` varchar(45) NOT NULL,
-  `ID_Noticia` int DEFAULT NULL,
-  PRIMARY KEY (`idPagina_web`),
-  KEY `foreingk_idNoticia_idx` (`ID_Noticia`),
-  CONSTRAINT `foreingk_idNoticia` FOREIGN KEY (`ID_Noticia`) REFERENCES `noticia` (`idNoticia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pagina_web`
---
-
-LOCK TABLES `pagina_web` WRITE;
-/*!40000 ALTER TABLE `pagina_web` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pagina_web` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `idUsuario` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `idUser` int NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(45) NOT NULL,
   `Apodo` varchar(45) DEFAULT 'Anonimo',
-  `Contraseña` varchar(45) NOT NULL,
+  `Contraseña` varchar(100) NOT NULL,
   `Email` varchar(45) NOT NULL,
-  PRIMARY KEY (`idUsuario`)
+  PRIMARY KEY (`idUser`),
+  UNIQUE KEY `idUser_UNIQUE` (`idUser`),
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `usuario_anonimo`
+-- Dumping routines for database 'bdmusiteca'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `DeleteComentario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteComentario`(
+ IN `pIdcomentario` int
+)
+BEGIN
+DELETE FROM `bdmusiteca`.`comentario`
+WHERE `comentario`.`idcomentario` = pIdcomentario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetCategoria` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCategoria`()
+BEGIN
+SELECT `categoria`.`idcategoria`,
+    `categoria`.`NombreCategoria`
+FROM `bdmusiteca`.`categoria`;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetCategoria(1)` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCategoria(1)`(
+ IN `pIdcategoria` int
+)
+BEGIN
+SELECT `categoria`.`idcategoria`,
+    `categoria`.`NombreCategoria`
+FROM `bdmusiteca`.`categoria`
+WHERE `categoria`.`idcategoria` = pIdcategoria;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetCategorias(plural)` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCategorias(plural)`()
+BEGIN
+SELECT `categoria`.`idcategoria`,
+    `categoria`.`NombreCategoria`
+FROM `bdmusiteca`.`categoria`;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetComentariosNoticia` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetComentariosNoticia`(
+IN `pIdnoticia` int
+)
+BEGIN
+SELECT `comentario`.`idcomentario`,
+    `comentario`.`contenido`,
+    `comentario`.`iduser`,
+    `comentario`.`idnoticia`,
+    `comentario`.`parent`
+FROM `bdmusiteca`.`comentario`
+WHERE   `comentario`.`idnoticia` = pIdnoticia;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetNoticia` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetNoticia`()
+BEGIN
+SELECT `noticia`.`idnoticia`,
+    `noticia`.`Titulo`,
+    `noticia`.`Descripcion`,
+    `noticia`.`Imagen`,
+    `noticia`.`idCategoria`
+FROM `bdmusiteca`.`noticia`;
 
-DROP TABLE IF EXISTS `usuario_anonimo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario_anonimo` (
-  `id_usuario_Anonimo` int NOT NULL AUTO_INCREMENT,
-  `Nombre_provicional` varchar(45) DEFAULT 'Anonimo',
-  `id_Noticia` int NOT NULL,
-  PRIMARY KEY (`id_usuario_Anonimo`),
-  KEY `fk_idNoticia_idx` (`id_Noticia`),
-  KEY `fk_idNoticia` (`id_Noticia`),
-  CONSTRAINT `fk_id_Noticia` FOREIGN KEY (`id_Noticia`) REFERENCES `noticia` (`idNoticia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetNoticia(1)` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetNoticia(1)`(
+ IN `pIdnoticia` int
+)
+BEGIN
+SELECT `noticia`.`idnoticia`,
+    `noticia`.`Titulo`,
+    `noticia`.`Descripcion`,
+    `noticia`.`Imagen`,
+    `noticia`.`idCategoria`
+FROM `bdmusiteca`.`noticia`
+WHERE `noticia`.`idnoticia` = pIdnoticia;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetNoticias(plural)` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetNoticias(plural)`()
+BEGIN
+SELECT `noticia`.`idnoticia`,
+    `noticia`.`Titulo`,
+    `noticia`.`Descripcion`,
+    `noticia`.`Imagen`,
+    `noticia`.`idCategoria`
+FROM `bdmusiteca`.`noticia`;
 
---
--- Dumping data for table `usuario_anonimo`
---
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetUser` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser`(
+IN `pidUser` int
+ )
+BEGIN
+SELECT 
+u.idUser,
+u.Nombre,
+u.Apodo
+FROM user u
+WHERE 
+u.idUser = pidUser;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertCategoria` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertCategoria`(
+IN `pNombreCategoria` varchar(45)
+)
+BEGIN
+INSERT INTO `categoria`
+(`NombreCategoria`)
+VALUES
+(pNombreCategoria);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertComentario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertComentario`(
+ IN `pContenido` text,
+ IN `pIduser` int,
+ IN `pIdnoticia` int,
+ IN `pParent` int
+)
+BEGIN
+INSERT INTO `bdmusiteca`.`comentario`
+(`contenido`,
+`iduser`,
+`idnoticia`,
+`parent`)
+VALUES
+(pContenido,
+pIduser,
+pIdnoticia,
+pParent
+);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LogIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LogIN`(
+IN `pNombre` varchar(45),
+IN `pApodo` varchar(45),
+IN `pContraseña` varchar(100),
+IN `pEmail` varchar(45)
+  )
+BEGIN
+SELECT 
+u.idUser,
+u.Nombre,
+u.Apodo
+FROM user u
+WHERE 
+u.Nombre = pNombre
+AND u.Apodo = pApodo
+AND u.Contraseña = pContraseña
+AND u.Email = pEmail;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `noticia` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `noticia`(
+IN `pTitulo` varchar(45),
+IN `pDescripcion` text,
+IN `pImagen` varchar(100),
+IN `pidCategoria` int
+)
+BEGIN
+INSERT INTO `noticia`
+(`Titulo`,
+`Descripcion`,
+`Imagen`,
+`idCategoria`)
+VALUES
+(
+pTitulo,
+pDescripcion,
+pImagen,
+pidCategoria
+);
 
-LOCK TABLES `usuario_anonimo` WRITE;
-/*!40000 ALTER TABLE `usuario_anonimo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario_anonimo` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `usuario_registrado`
---
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `SignIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SignIN`(
+  IN `pContraseña` varchar(100),
+  IN `pEmail` varchar(45)
+)
+BEGIN
+INSERT INTO `user`
+(`Contraseña`,
+`Email`)
+VALUES
+(pContraseña,
+pEmail
+);
 
-DROP TABLE IF EXISTS `usuario_registrado`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario_registrado` (
-  `id_Usuario_Registrado` int NOT NULL AUTO_INCREMENT,
-  `id_Noticia` int NOT NULL,
-  `ID_User` int NOT NULL,
-  `Perfil` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_Usuario_Registrado`),
-  KEY `fk_idNoticia_idx` (`id_Noticia`),
-  KEY `fkey_id_user_idx` (`ID_User`),
-  CONSTRAINT `fk_idNoticia` FOREIGN KEY (`id_Noticia`) REFERENCES `noticia` (`idNoticia`),
-  CONSTRAINT `fkey_id_user` FOREIGN KEY (`ID_User`) REFERENCES `usuario` (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario_registrado`
---
-
-LOCK TABLES `usuario_registrado` WRITE;
-/*!40000 ALTER TABLE `usuario_registrado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario_registrado` ENABLE KEYS */;
-UNLOCK TABLES;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -288,4 +516,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-08  9:46:03
+-- Dump completed on 2020-12-08 21:50:09
